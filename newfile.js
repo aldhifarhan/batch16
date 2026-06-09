@@ -1,0 +1,1 @@
+const umur = 20;
