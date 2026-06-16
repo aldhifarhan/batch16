@@ -1,0 +1,193 @@
+{
+  "info": {
+    "_postman_id": "75697fad-1035-4abc-9f2b-0e3f450331ed",
+    "name": "Minibootcamp",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "49741907",
+    "_collection_link": "https://go.postman.co/collection/49741907-75697fad-1035-4abc-9f2b-0e3f450331ed?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Post Bank Account Data Request Positif",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Validasi Nomor Akun Bank\", function () {\r",
+              "    var jsonData = pm.response.json();\r",
+              "    pm.expect(jsonData.bank_account_number).to.eql(\"12345670\");\r",
+              "    pm.expect(jsonData.status).to.eql(\"COMPLETED\");\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Response time is less than 200ms\", function () {\r",
+              "    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Basic aWx1bWFfZGV2ZWxvcG1lbnRfRlg0ZjBNNXN4RGdrNXFGeVpuazYwWmVuZ0FmQTlvMzF4M2VjZDI5dmloamM0Vmh5SjhGY2xaaEhqanc6 "
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\"bank_account_number\": \"12345670\",\n\"bank_code\": \"BCA\",\n\"given_name\": \"FIRA DIYANKA\",\n\"surname\": \"FIRA DIYANKA\",\n\"reference_id\": \"testing123-456\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://api.iluma.ai/v1.1/identity/bank_account_data_requests",
+          "protocol": "https",
+          "host": [
+            "api",
+            "iluma",
+            "ai"
+          ],
+          "path": [
+            "v1.1",
+            "identity",
+            "bank_account_data_requests"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Post Bank Account Data Request Negatif",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code must be 400\", function () {\r",
+              "    pm.response.to.have.status(400);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Validasi Nomor Akun Bank\", function () {\r",
+              "    var jsonData = pm.response.json();\r",
+              "    pm.expect(jsonData.error_code).to.eql(\"API_VALIDATION_ERROR\");\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Response time is less than 200ms\", function () {\r",
+              "    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Basic aWx1bWFfZGV2ZWxvcG1lbnRfRlg0ZjBNNXN4RGdrNXFGeVpuazYwWmVuZ0FmQTlvMzF4M2VjZDI5dmloamM0Vmh5SjhGY2xaaEhqanc6"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\"bank_account_number\": \"\",\n\"bank_code\": \"BCA\",\n\"given_name\": \"FIRA DIYANKA\",\n\"surname\": \"FIRA DIYANKA\",\n\"reference_id\": \"testing123-456\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://api.iluma.ai/v1.1/identity/bank_account_data_requests",
+          "protocol": "https",
+          "host": [
+            "api",
+            "iluma",
+            "ai"
+          ],
+          "path": [
+            "v1.1",
+            "identity",
+            "bank_account_data_requests"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Bank Account Data Positif",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Validasi Nomor Akun Bank\", function () {\r",
+              "    var jsonData = pm.response.json();\r",
+              "    pm.expect(jsonData.bank_account_number).to.eql(\"123456708\");\r",
+              "    pm.expect(jsonData.status).to.eql(\"COMPLETED\");\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Response time is less than 200ms\", function () {\r",
+              "    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Basic aWx1bWFfZGV2ZWxvcG1lbnRfRlg0ZjBNNXN4RGdrNXFGeVpuazYwWmVuZ0FmQTlvMzF4M2VjZDI5dmloamM0Vmh5SjhGY2xaaEhqanc6"
+          }
+        ],
+        "url": {
+          "raw": "https://api.iluma.ai/v1.1/identity/bank_account_data_requests/bknv_6a2963f06540322bbff05a51",
+          "protocol": "https",
+          "host": [
+            "api",
+            "iluma",
+            "ai"
+          ],
+          "path": [
+            "v1.1",
+            "identity",
+            "bank_account_data_requests",
+            "bknv_6a2963f06540322bbff05a51"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
