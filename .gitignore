@@ -1,0 +1,7 @@
+node_modules/
+.playwright-mcp/
+mochawesome-report/
+report.html
+hasil-test.html
+.env
+

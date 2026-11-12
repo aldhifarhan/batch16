@@ -1,0 +1,9 @@
+{
+    "name": "ini-nama-project",
+    "version": "1.0.0",
+    "description": "ini deskripsi project nya",
+    "type": "module",
+    "scripts": {
+        "jalanin": "mocha test --recursive --timeout 5000 --reporter spec"
+    }
+}
